@@ -3,15 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var methodOverride = require('method-override'); //custom Method
 
-//custom Method
-var methodOverride = require('method-override');
+// Initialize better-sqlite3 Database Connection
+var Database = require('better-sqlite3');
+var db = new Database(path.join(__dirname, 'data', 'contacts.db'), { verbose: console.log });
+
 //Index Route
 var indexRouter = require('./routes/index');
 //Contacts Route
-var contactsRouter = require('./routes/contacts');
-
-
+var contactsRouter = require('./routes/contacts')(db);
 
 var app = express();
 
