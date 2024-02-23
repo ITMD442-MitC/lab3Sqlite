@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title #{title}
+    // Bootstrap CDN for styling
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  body
+    .container
+      .jumbotron
+        h1 #{title}
+        p Welcome to the Contact Database Application. This app allows you to manage your contacts efficiently.
+        p Contact Developer: #{contactInfo}
+        a.btn.btn-primary.btn-lg(href='/contacts') View Contacts Database
